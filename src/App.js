@@ -5,10 +5,9 @@ import useStore from "./store/store.js";
 import Loading from './loading.js';
 
 function App() {
-  const bears = useStore(state => state.bears);
-  const data = useStore(state => state.data);
-  const getData = useStore(state => state.getData);
-  const increasePopulation = useStore(state => state.increasePopulation);
+  const { bears, data, getData, increasePopulation } = useStore((state) => state); // get whole state
+  // const increasePopulation = useStore(state => state.increasePopulation); // get single state
+  // when state updates, any component that is subscribed to it, like here, that component will rerender, so be aware of that for performance
 
   useEffect(() => {
     getData();
